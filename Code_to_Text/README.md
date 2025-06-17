@@ -1,0 +1,18 @@
+python run.py \
+    --output_dir=./saved_models \
+    --model_type=roberta \
+    --config_name=microsoft/unixcoder-base \
+    --model_name_or_path=microsoft/unixcoder-base \
+    --tokenizer_name=microsoft/unixcoder-base \
+    --do_test \
+    --train_data_file=../dataset/python/clean_train.jsonl \
+    --eval_data_file=../dataset/python/clean_valid.jsonl \
+    --test_data_file=../dataset/python/clean_test.jsonl \
+    --epoch 5 \
+    --block_size 1024 \
+    --train_batch_size 4 \
+    --eval_batch_size 4 \
+    --learning_rate 5e-5 \
+    --max_grad_norm 1.0 \
+    --evaluate_during_training \
+    --seed 123456 2>&1| tee train_python.log
